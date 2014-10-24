@@ -1,0 +1,41 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        // replace with the current version of the Android plugin
+        classpath 'com.android.tools.build:gradle:0.12.1'
+    }
+}
+
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "20.0.0"
+
+    defaultConfig {
+        applicationId "com.github.android"
+        minSdkVersion 8
+        targetSdkVersion 19
+    }
+
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+    //Add these two lines for androidannotation
+//    apt "org.androidannotations:androidannotations:3.0.1"
+//    compile 'org.androidannotations:androidannotations-api:3.0.1'
+
+//    compile project(':..:androidlibs:androidlibs')
+    compile 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+
